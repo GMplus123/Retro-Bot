@@ -10,7 +10,7 @@ A bot made to serve https://discord.gg/XXj7HekPEE.
 # How to configure?
 
 - Create 'Cafe Waiter Bot/.env' file containing
-token=bottoken
+token=your_bot_token
 
 - Change the modmailChannel to your modmail channel id.
 
@@ -18,3 +18,5 @@ token=bottoken
 
 - To run the bot run "npm run bot" inside of the 'Cafe Waiter Bot' directory.
 - If you want to build it into a docker image run "npm run build"
+
+# Made by Ebsku#0949
