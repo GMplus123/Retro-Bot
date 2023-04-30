@@ -6,13 +6,15 @@ A bot made to serve https://discord.gg/XXj7HekPEE.
 
 - Modmail
 - Fun commands
+- Random message from a file on mention
 
 # How to configure?
 
 - Create 'Cafe Waiter Bot/.env' file containing
 token=your_bot_token
 
-- Change the modmailChannel to your modmail channel id.
+- Change "modmailChannel" to your modmail channel id in config.json.
+- Change "randomMessagesPath" to the path of your random messages.
 
 # How to run the bot?
 

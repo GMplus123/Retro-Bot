@@ -1,5 +1,5 @@
 const { client } = require("discord");
-const { EmbedBuilder, DMChannel } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const chalk = require("chalk");
 const config = require("../../../config.json");
 
@@ -40,6 +40,20 @@ module.exports = {
             modmail.send({
                 embeds: [embed],
             });
+            return;
+        }
+
+        if (message.guild) {
+            if (message.content.includes("<@1101950102656000182>")) {
+                message.reply(client.getRandomMessage());
+            }
+            
+            
+            /*else if (message.reference) {
+                if (message.reference.author == client.user) {
+                    message.reply(client.getRandomMessage());
+                }
+            }*/
         }
 
     },
