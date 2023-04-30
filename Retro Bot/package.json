@@ -15,7 +15,7 @@
   "version": "1.0.1",
   "main": "src/index.js",
   "scripts": {
-    "test": "node .",
+    "bot": "node .",
     "build": "docker build -t ebsku/retro-bot:${npm_package_version} ."
   },
   "keywords": [],

@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, PermissionsBitField, EmbedBuilder } = require("discord.js");
 const chalk = require("chalk");
+const config = require("../../config.json");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -22,7 +23,7 @@ module.exports = {
     async execute(interaction, client) {
         const user = interaction.options.getUser("user");
 
-        const modmail = client.channels.cache.get("1102160118377885788");
+        const modmail = client.channels.cache.get(config.modmailChannel);
         
         user.send(interaction.options.getString("message")).catch(
             console.error

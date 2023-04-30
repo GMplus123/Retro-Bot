@@ -1,6 +1,7 @@
 const { client } = require("discord");
 const { EmbedBuilder, DMChannel } = require("discord.js");
 const chalk = require("chalk");
+const config = require("../../config.json");
 
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
         
         //Listen for DMs
         if (!message.guild) {      
-            const modmail = client.channels.cache.get("1102160118377885788");
+            const modmail = client.channels.cache.get(config.modmailChannel);
     
             //Log the message to the console
             console.log(
