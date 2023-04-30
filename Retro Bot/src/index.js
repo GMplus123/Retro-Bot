@@ -1,5 +1,5 @@
 require("dotenv").config();
-const package = require("./package.json");
+const package = require("../package.json");
 const { token } = process.env;
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const fs = require("fs");
@@ -33,11 +33,18 @@ client.on("messageCreate", async (message) => {
     if (message.guild) return;
     if (message.author.client) return;
 
+    const modmail = client.channels.cache.get("1102160118377885788");
+
     //Log the message to the console
     console.log(
         chalk.green(
             `Message recieved: ${message.author.tag}: ${message.content}`
         )
+    );
+
+    //Send the message to staff chat
+    modmail.send(
+        `Message recieved: ${message.author.tag}: ${message.content}`
     );
 });
 
