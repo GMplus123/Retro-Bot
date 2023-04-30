@@ -1,4 +1,5 @@
 require("dotenv").config();
+const package = require("./package.json");
 const { token } = process.env;
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const fs = require("fs");
@@ -15,7 +16,7 @@ client.commands = new Collection();
 client.buttons = new Collection();
 client.commandArray = [];
 client.colour = "80dfff";
-client.version = "1.0.0";
+client.version = package.version;
 
 const functionFolders = fs.readdirSync(`./src/functions`);
 for (const folder of functionFolders) {
