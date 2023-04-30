@@ -1,11 +1,15 @@
 require("dotenv").config();
 const package = require("../package.json");
 const { token } = process.env;
-const { Client, Collection, GatewayIntentBits } = require("discord.js");
+const { Client, Collection, GatewayIntentBits, Partials } = require("discord.js");
 const fs = require("fs");
 const chalk = require("chalk");
 
 const client = new Client({
+    partials: [
+        Partials.Message,
+        Partials.Channel,
+    ],
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.DirectMessages,
@@ -26,29 +30,6 @@ for (const folder of functionFolders) {
     for (const file of functionFiles)
         require(`./functions/${folder}/${file}`)(client);
 }
-
-//Listen for dms
-client.on("messageCreate", async (message) => {
-
-    if (message.guild) return;
-    if (message.author.client) return;
-
-    const modmail = client.channels.cache.get("1102160118377885788");
-
-    //Log the message to the console
-    console.log(
-        chalk.green(
-            `Message recieved: ${message.author.tag}: ${message.content}`
-        )
-    );
-
-    //Send the message to staff chat
-    modmail.send(
-        `Message recieved: ${message.author.tag}: ${message.content}`
-    );
-});
-
-
 
 client.handleEvents();
 client.handleCommands();
